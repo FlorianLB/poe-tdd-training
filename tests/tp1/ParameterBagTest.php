@@ -78,9 +78,7 @@ class ParameterBagTest extends \PHPUnit_Framework_TestCase
         $this->bag->all();
 
         $paramTab = array (
-            'bleu'  => 'sonic' ,
-            'or' => 'superSonic',
-            'feu'  => 'goupix'
+            'foo'  => 'bar'
         );
 
 
