@@ -108,6 +108,6 @@ class ParameterBagTest extends \PHPUnit_Framework_TestCase
 
         $this->bag->add($paramTab);
 
-        $this->assertEquals(3, $this->bag->count());
+        $this->assertEquals($paramTab , $this->bag->count());
     }
 }
