@@ -30,9 +30,9 @@ class ParameterBagTest extends \PHPUnit_Framework_TestCase
 
 
         // will pass
-        $this->assertEquals('bar', $this->bag->get('foo'));
-        $this->assertEquals(null, $this->bag->get('pony'));
-        $this->assertEquals('pink', $this->bag->get('pony', 'pink'));
+        $this->assertSame('bar', $this->bag->get('foo'));
+        $this->assertSame(null, $this->bag->get('pony'));
+        $this->assertSame('pink', $this->bag->get('pony', 'pink'));
 
 
         // // will fail
@@ -43,25 +43,49 @@ class ParameterBagTest extends \PHPUnit_Framework_TestCase
     public function testGetInt()
     {
 
+        $this->assertSame( (int)'foo', $this->bag->getInt('foo'));
+        $this->assertSame( 3 , $this->bag->getInt('toto', 3));
+
     }
 
     public function testSet()
     {
-
+        $this->bag->set('roux','renard');
+        $this->assertSame('renard' , $this->bag->get('roux') );
     }
 
     public function testHas()
     {
 
+        $this->assertTrue( $this->bag->has('foo') );
+        $this->assertFalse( $this->bag->has('toto') );
+
     }
 
     public function testRemove()
     {
+        $this->assertTrue( $this->bag->has('foo') );
+
+        $this->bag->remove('foo');
+
+        $this->assertFalse( $this->bag->has('foo') );
 
     }
 
     public function testAll()
     {
+
+        $this->bag->all();
+
+        $paramTab = array (
+            'bleu'  => 'sonic' ,
+            'or' => 'superSonic',
+            'feu'  => 'goupix'
+        );
+
+
+
+        $this->assertEquals($paramTab ,$this->bag->all());
 
     }
 
