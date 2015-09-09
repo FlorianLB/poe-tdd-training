@@ -81,9 +81,12 @@ class ParameterBagTest extends \PHPUnit_Framework_TestCase
             'foo'  => 'bar'
         );
 
-
+        $paramTab2 = array (
+            'tata'  => 'toto'
+        );
 
         $this->assertEquals($paramTab ,$this->bag->all());
+        $this->assertNotEquals($paramTab2 ,$this->bag->all());
 
     }
 
